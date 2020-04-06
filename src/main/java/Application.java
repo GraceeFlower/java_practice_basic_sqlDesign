@@ -1,5 +1,3 @@
-import entities.Person;
-import entities.Student;
 import entities.Teacher;
 import utils.JDBCUtil;
 import utils.SqlUtil;
@@ -15,7 +13,7 @@ public class Application {
         List<Teacher> stu = new ArrayList<>();
         try {
             Connection conn = JDBCUtil.connectToDB();
-            String sql = "SELECT username, course, feature_color FROM teacher";
+            String sql = "SELECT username, course, feature_color, birthday FROM teacher";
             stu = SqlUtil.executeQuery(conn, sql, Teacher.class);
         } catch (SQLException e) {
             e.printStackTrace();

@@ -2,10 +2,13 @@ package entities;
 
 import utils.ColumnName;
 
+import java.util.Date;
+
 public class Person extends Feature {
 
     @ColumnName("username")
     public String name;
+    public Date birthday;
     public int age;
     public String gender;
     public String password;
@@ -13,12 +16,13 @@ public class Person extends Feature {
     public Person() {
     }
 
-    public Person(String color, String name, int age, String gender, String password) {
+    public Person(String color, String name, int age, String gender, String password, Date birthday) {
         super(color);
         this.name = name;
         this.age = age;
         this.gender = gender;
         this.password = password;
+        this.birthday = birthday;
     }
 
     public String getName() {
@@ -53,13 +57,23 @@ public class Person extends Feature {
         this.password = password;
     }
 
+    public Date getBirthday() {
+        return birthday;
+    }
+
+    public void setBirthday(Date birthday) {
+        this.birthday = birthday;
+    }
+
     @Override
     public String toString() {
         return "Person{" +
             "name='" + name + '\'' +
+            ", birthday=" + birthday +
             ", age=" + age +
             ", gender='" + gender + '\'' +
             ", password='" + password + '\'' +
+            ", color='" + color + '\'' +
             '}';
     }
 }

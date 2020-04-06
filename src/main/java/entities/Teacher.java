@@ -1,5 +1,7 @@
 package entities;
 
+import java.util.Date;
+
 public class Teacher extends Person {
 
     private String course;
@@ -7,8 +9,8 @@ public class Teacher extends Person {
     public Teacher() {
     }
 
-    public Teacher(String color, String name, int age, String gender, String password, String course) {
-        super(color, name, age, gender, password);
+    public Teacher(String color, String name, int age, String gender, String password, String course, Date birthday) {
+        super(color, name, age, gender, password, birthday);
         this.course = course;
     }
 
@@ -26,6 +28,7 @@ public class Teacher extends Person {
             "name='" + name + '\'' +
             ", course='" + course + '\'' +
             ", color='" + color + '\''+
+            ", birthday='" + birthday + '\'' +
             '}';
     }
 }
