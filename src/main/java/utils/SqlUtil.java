@@ -25,7 +25,8 @@ public class SqlUtil {
     }
 
     public static <T> T executeQuerySingle(Connection conn, String sql, Class<T> clazz, Object... args) {
-        return executeQuery(conn, sql, clazz, args).get(0);
+        List<T> list = executeQuery(conn, sql, clazz, args);
+        return 0 == list.size() ? null : list.get(0);
     }
 
     public static <T> List<T> executeQuery(Connection conn, String sql, Class<T> clazz, Object... args) {
@@ -40,7 +41,7 @@ public class SqlUtil {
             rs = pre.executeQuery();
             ResultSetMetaData resultSetMD = rs.getMetaData();
             int columnCount = resultSetMD.getColumnCount();
-            Field field = clazz.getDeclaredFields()[0];
+            Field field = null;
             while (rs.next()) {
                 T t = clazz.newInstance();
                 for (int i = 0; i < columnCount; i++) {
