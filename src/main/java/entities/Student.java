@@ -1,13 +1,11 @@
 package entities;
 
-import java.util.Date;
-
-public class Student extends Person {
+public class Student extends GeneralUser {
 
     public Student() {
     }
 
-    public Student(String color, String name, int age, String gender, String password, Date birthday) {
-        super(color, name, age, gender, password, birthday);
+    public Student(int id, String name, int age, char gender, String password) {
+        super(id, name, age, gender, password);
     }
 }
